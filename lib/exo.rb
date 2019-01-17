@@ -2,22 +2,14 @@ require 'rubygems'
 require 'nokogiri'
 require 'open-uri'
 
-
-
-
-
-
-
-
-
-             
+     
 
 def price 
     
     prix = [] 
     @array=[]
     monnaie = []
-                                                                                #methode pour scraper le prix
+    #methode pour scraper le prix
     page = Nokogiri::HTML(open("https://coinmarketcap.com/all/views/all/"))     #lien du site
     doc_cours = page.xpath('//td[@class="no-wrap text-right"]/a[@class="price"]')   #xpath jusqu'au prix
     cours = doc_cours.each do |crs|                                                 # boucle pour chaque prix, l'afficher et le mettre ds un array en enlevant le "$"
